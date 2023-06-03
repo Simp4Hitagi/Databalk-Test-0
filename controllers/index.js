@@ -18,13 +18,13 @@ route.get('/user/:userID', (req, res)=>{
     user.fetchUser(req, res);
 });
 // Login
-// route.post('/login', bodyParser.json(),(req, res)=>{
-//     user.login(req, res);
-// });
+route.post('/login', bodyParser.json(),(req, res)=>{
+    user.login(req, res);
+});
 // Register
-// route.post('/register', bodyParser.json(), (req, res)=> {
-//     user.createUser(req, res);
-// })
+route.post('/register', bodyParser.json(), (req, res)=> {
+    user.createUser(req, res);
+})
 
 // Update
 route.put('/user/:userID',bodyParser.json(), (req, res)=>{

@@ -6,53 +6,53 @@ const {createToken} = require('../middleware/AuthenticatedUser');
 
 // User
 class User {
-    // login(req, res) {
-    //     const {emailAddress, userPassword} = req.body;
-    //     const strQry = 
-    //     `
-    //     SELECT userName, emailAddress, userPassword
-    //     FROM Users
-    //     WHERE emailAddress = '${emailAddress}';
-    //     `;
-    //     database.query(strQry, async (err, data)=>{
-    //         if(err) throw err;
-    //         if((!data.length) || (data == null)) {
-    //             res.status(401).json({err: 
-    //                 "You provided the wrong email address"});
-    //         }else {
-    //             await compare(userPassword, 
-    //                 data[0].userPassword, 
-    //                 (cErr, cResult)=> {
-    //                     if(cErr) throw cErr;
-    //                     // Create a token
-    //                     const jwToken = 
-    //                     createToken(
-    //                         {
-    //                             emailAddress, userPassword
-    //                         }
-    //                     );
-    //                     // Saving
-    //                     res.cookie('LegitUser',
-    //                     jwToken, {
-    //                         maxAge: 3600000,
-    //                         httpOnly: true,
-    //                         path: '/'
-    //                     })
-    //                     if(cResult) {
-    //                         res.status(200).json({
-    //                             msg: 'Logged in',
-    //                             jwToken,
-    //                             result: data[0]
-    //                         })
-    //                     }else {
-    //                         res.status(401).json({
-    //                             err: 'You entered an invalid password or you are not registered. '
-    //                         })
-    //                     }
-    //                 })
-    //         }
-    //     })     
-    // }
+    login(req, res) {
+        const {emailAddress, userPassword} = req.body;
+        const strQry = 
+        `
+        SELECT userName, emailAddress, userPassword
+        FROM Users
+        WHERE emailAddress = '${emailAddress}';
+        `;
+        database.query(strQry, async (err, data)=>{
+            if(err) throw err;
+            if((!data.length) || (data == null)) {
+                res.status(401).json({err: 
+                    "You provided the wrong email address"});
+            }else {
+                await compare(userPassword, 
+                    data[0].userPassword, 
+                    (cErr, cResult)=> {
+                        if(cErr) throw cErr;
+                        // Create a token
+                        const jwToken = 
+                        createToken(
+                            {
+                                emailAddress, userPassword
+                            }
+                        );
+                        // Saving
+                        res.cookie('LegitUser',
+                        jwToken, {
+                            maxAge: 3600000,
+                            httpOnly: true,
+                            path: '/'
+                        })
+                        if(cResult) {
+                            res.status(200).json({
+                                msg: 'Logged in',
+                                jwToken,
+                                result: data[0]
+                            })
+                        }else {
+                            res.status(401).json({
+                                err: 'You entered an invalid password or you are not registered. '
+                            })
+                        }
+                    })
+            }
+        })     
+    }
     fetchUsers(req, res) {
         const strQry = 
         `
@@ -66,6 +66,8 @@ class User {
                 {results: data} );
         })
     }
+
+    
     fetchUser(req, res) {
         const strQry = 
         `
@@ -82,6 +84,8 @@ class User {
         })
 
     }
+
+
     async createUser(req, res) {
         // Payload
         let details = req.body;
@@ -114,6 +118,8 @@ class User {
             }
         })    
     }
+
+
     updateUser(req, res) {
         let data = req.body;
         if(data.userPassword !== null || 
