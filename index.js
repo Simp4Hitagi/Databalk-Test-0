@@ -37,6 +37,6 @@ const PORT = process.env.SERVER_PORT || 4000; //default PORT is 4000 incase .env
 app.listen(
     PORT, 
     ()=>{
-    console.log(`Server is running on PORT: ${PORT} at http://localhost/${PORT}`);
+    console.log(`Server is running on PORT: ${PORT} at http://localhost:${PORT}`);
 }
 );
