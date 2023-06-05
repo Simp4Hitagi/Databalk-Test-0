@@ -56,7 +56,7 @@ class User {
     fetchUsers(req, res) {
         const strQry = 
         `
-        SELECT userName, emailAddress, userPassword
+        SELECT userID, userName, emailAddress, userPassword
         FROM Users;
         `;
         //database
@@ -215,17 +215,20 @@ class Houses {
 
     }
     deleteHouse(req, res) {
-        const userId = req.user.userID;
         const houseId = req.params.houseID;
-        const strQry = `DELETE FROM Houses WHERE houseID = ? AND userID = ?`;
-        database.query(strQry, [houseId, userId], (err, result) => {
+        const strQry = `DELETE FROM Houses WHERE houseID = ?`;
+        database.query(strQry, [houseId], (err, result) => {
           if (err) throw err;
           if (result.affectedRows === 0) {
+            console.log(`House ${houseId} not found or not authorized`);
             return res.status(404).json({ error: "House not found or not authorized" });
           }
+          console.log(`House ${houseId} deleted successfully`);
+          res.status(200).json({msg: "House deleted"});
           res.status(204).end();
         });
       }
+      
       
 
 }
