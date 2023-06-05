@@ -8,6 +8,8 @@ const cors = require('cors');
 
 const app = express(); // to initialize
 
+
+
 let corsOptions =  {
     origin: 'http://localhost:3000'
 }
@@ -21,10 +23,11 @@ app.use(
         next();
     });
 
+
 app.use(
-    route,
     cookieParser(),
     cors(),
+    route,
     express.json(),
     express.urlencoded({extended: true})
 )

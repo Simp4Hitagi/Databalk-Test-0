@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>GetAHouse</title>
+
+</head>
+<body>
+    <main>
+      <div class="container">
+        <h3 class="display-3 text-center">Home Route</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Path</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">GET</td>
+              <td>/</td>
+              <td>Home Page</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <h3 class="display-3 text-center">User Routes</h3>
+        <table class="table table-striped">
+          <thead>
+            <th scope="col">Method</th>
+            <th scope="col">Path</th>
+            <th scope="col">Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">POST</td>
+              <td>/register</td>
+              <td>Register a new user.</td>
+            </tr>
+            <tr>
+              <td scope="row">POST</td>
+              <td>/login</td>
+              <td>Login a user that's already registered.</td>
+            </tr>
+            <tr>
+              <td scope="row">GET</td>
+              <td>/users</td>
+              <td>To get all the users that are registered</td>
+            </tr>
+            <tr>
+              <td scope="row">GET</td>
+              <td>/user/userID</td>
+              <td>Get a user by using the unique userID.</td>
+            </tr>
+            <tr>
+              <td scope="row">DELETE</td>
+              <td>/user/:userID</td>
+              <td>Delete a house by using it's unique userID.</td>
+            </tr>
+            <tr>
+              <td scope="row">PUT</td>
+              <td>/user/:userID</td>
+              <td>Update an existing user profile by using the the userID.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 class="display-3 text-center routes" >House Routes</h3>
+  
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Path</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">GET</td>
+              <td>/houses</td>
+              <td>Get all the houses.</td>
+            </tr>
+            <tr>
+              <td scope="row">GET</td>
+              <td>/house/:houseID</td>
+              <td>Get a single house by using the unique houseID.</td>
+            </tr>
+            <tr>
+              <td scope="row">POST</td>
+              <td>/house</td>
+              <td>Add a house to the API.</td>
+            </tr>
+            <tr>
+              <td scope="row">PUT</td>
+              <td>/house/:houseID</td>
+              <td>Update a house by making use of the unique houseID.</td>
+            </tr>
+            <tr>
+              <td scope="row">DELETE</td>
+              <td>/house/:houseID</td>
+              <td>Delete a single house by using the houseID.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+</body>
+</html>

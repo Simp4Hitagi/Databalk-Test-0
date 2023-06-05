@@ -1,5 +1,5 @@
 const express = require('express');
-// const path = require('path');
+const path = require('path');
 const bodyParser = require('body-parser');
 const route = express.Router();
 const {User, Houses} = require('../models/index');
@@ -7,9 +7,17 @@ const {User, Houses} = require('../models/index');
 const user = new User();
 const house = new Houses();
 
+// Home route
+
+route.get('^/$|/home', (req, res)=>{
+    res.status(200).sendFile(path.join(__dirname, '../view/index.html'))
+})
+
+
 // ===Users====
 
 // Retrieve all users
+
 route.get('/users', (req, res)=>{
     user.fetchUsers(req, res);
 });
