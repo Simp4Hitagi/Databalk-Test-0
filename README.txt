@@ -58,4 +58,8 @@ JavaScript
 HTML
 Bootstrap 5.3.0-alpha1
 
+Tested with 
+	VScode extension-ThunderClient
+	Postman
+
 Render: https://databalk-test-1.onrender.com/
